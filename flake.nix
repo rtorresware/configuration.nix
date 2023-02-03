@@ -6,7 +6,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
-    neovim.url = "/Users/rtorres/rtorresware/rtorres-nvim";
+    neovim.url = "github:rtorresware/nvim.flake";
     neovim.inputs.nixpkgs.follows = "nixpkgs";
     devenv.url = "github:cachix/devenv/v0.5.1";
     devenv.inputs.nixpkgs.follows = "nixpkgs";

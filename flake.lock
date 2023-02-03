@@ -159,15 +159,15 @@
       "locked": {
         "lastModified": 1675396841,
         "narHash": "sha256-C8uzSzV09a6kIpTT67tXP+rQYscnCZYYeKQVLslJLEw=",
-        "ref": "refs/heads/main",
+        "owner": "rtorresware",
+        "repo": "nvim.flake",
         "rev": "0509434a5d5e8c41424784dc79d87f486ac2f762",
-        "revCount": 1,
-        "type": "git",
-        "url": "file:///Users/rtorres/rtorresware/rtorres-nvim"
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "file:///Users/rtorres/rtorresware/rtorres-nvim"
+        "owner": "rtorresware",
+        "repo": "nvim.flake",
+        "type": "github"
       }
     },
     "nix": {
