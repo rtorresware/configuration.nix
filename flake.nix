@@ -8,7 +8,7 @@
     darwin.inputs.nixpkgs.follows = "nixpkgs";
     neovim.url = "github:rtorresware/nvim.flake";
     neovim.inputs.nixpkgs.follows = "nixpkgs";
-    devenv.url = "github:cachix/devenv/v0.5.1";
+    devenv.url = "github:cachix/devenv/v0.6";
     devenv.inputs.nixpkgs.follows = "nixpkgs";
   };
 

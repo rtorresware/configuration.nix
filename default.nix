@@ -20,7 +20,6 @@
     home.sessionVariables = {
       GIT_EDITOR = "nvim";
       EDITOR = "nvim";
-      NIXPKGS_ALLOW_UNFREE = "1";
     };
   
     programs.fish = {
