@@ -15,6 +15,7 @@
       ripgrep
       direnv
       any-nix-shell
+      go-2fa
     ];
   
     home.sessionVariables = {
