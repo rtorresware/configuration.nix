@@ -1,12 +1,13 @@
 { pkgs, inputs, ... }:
 {
   programs.zsh.enable = true;
-  nix.settings.experimental-features = ["nix-command" "flakes"];
   services.nix-daemon.enable = true;
 
   home-manager.useUserPackages = true;
   home-manager.useGlobalPkgs = false;
   home-manager.users.rtorres = { pkgs, ... } : {
+    nixpkgs.config.allowUnfree = true;
+    nix.settings.experimental-features = ["nix-command" "flakes"];
     home.stateVersion = "22.11";
     home.packages = with pkgs;
     [
