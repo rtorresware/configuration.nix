@@ -16,6 +16,7 @@
       direnv
       any-nix-shell
       go-2fa
+      obsidian
     ];
   
     home.sessionVariables = {
