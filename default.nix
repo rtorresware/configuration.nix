@@ -3,23 +3,28 @@
   programs.zsh.enable = true;
   services.nix-daemon.enable = true;
 
+  users.users.rtorres.home = "/Users/rtorres";
+
   home-manager.useUserPackages = true;
   home-manager.useGlobalPkgs = false;
   home-manager.users.rtorres = { pkgs, ... } : {
     nixpkgs.config.allowUnfree = true;
     nix.settings.experimental-features = ["nix-command" "flakes"];
-    home.stateVersion = "22.11";
+    home.stateVersion = "23.05";
     home.packages = with pkgs;
     [
-      inputs.devenv.defaultPackage.${home-manager.system}
+      inputs.devenv.packages.${home-manager.system}.devenv
       inputs.neovim.defaultPackage.${home-manager.system}
       ripgrep
       direnv
       any-nix-shell
       go-2fa
       obsidian
+      heroku
+      yt-dlp
     ];
   
+    home.homeDirectory = "/Users/rtorres";
     home.sessionVariables = {
       GIT_EDITOR = "nvim";
       EDITOR = "nvim";
