@@ -21,7 +21,9 @@
       go-2fa
       obsidian
       heroku
-      yt-dlp
+
+      podman
+      nixd
     ];
   
     home.homeDirectory = "/Users/rtorres";
