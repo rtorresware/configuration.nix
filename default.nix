@@ -9,6 +9,9 @@
   home-manager.useGlobalPkgs = false;
   home-manager.users.rtorres = { pkgs, ... } : {
     nixpkgs.config.allowUnfree = true;
+    nixpkgs.config.permittedInsecurePackages = [
+      "nodejs-16.20.2"
+    ];
     nix.settings.experimental-features = ["nix-command" "flakes"];
     home.stateVersion = "23.05";
     home.packages = with pkgs;
@@ -23,7 +26,8 @@
       heroku
 
       podman
-      nixd
+      nil
+      nixpkgs-fmt
     ];
   
     home.homeDirectory = "/Users/rtorres";
