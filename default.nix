@@ -36,6 +36,11 @@
       EDITOR = "nvim";
     };
   
+    programs.git = {
+      enable = true;
+      userName = "Rodolfo Torres";
+      userEmail = "rtorresware@gmail.com";
+    };
     programs.fish = {
       enable = true;
       plugins = [

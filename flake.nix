@@ -6,14 +6,14 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
-    neovim.url = "github:rtorresware/nvim.flake/copilot";
+    neovim.url = "github:rtorresware/nvim.flake/main";
     neovim.inputs.nixpkgs.follows = "nixpkgs";
     devenv.url = "github:cachix/devenv/latest";
     devenv.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs:
-    let hostname = "macbook"; in {
+    let hostname = "Rodolfos-MacBook-Pro"; in {
       darwinConfigurations.${hostname} = inputs.darwin.lib.darwinSystem {
       	specialArgs = { inherit inputs; };
         system = "aarch64-darwin";
