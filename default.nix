@@ -8,10 +8,10 @@
   home-manager.useUserPackages = true;
   home-manager.useGlobalPkgs = false;
   home-manager.users.rtorres = { pkgs, ... } : {
-    nixpkgs.config.allowUnfree = true;
-    nixpkgs.config.permittedInsecurePackages = [
-      "nodejs-16.20.2"
-    ];
+    nixpkgs.config = {
+      allowUnfree = true;
+      input-fonts.acceptLicense = true;
+    };
     nix.settings.experimental-features = ["nix-command" "flakes"];
     home.stateVersion = "23.05";
     home.packages = with pkgs;
@@ -28,6 +28,7 @@
       podman
       nil
       nixpkgs-fmt
+      input-fonts
     ];
   
     home.homeDirectory = "/Users/rtorres";
