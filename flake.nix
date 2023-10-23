@@ -13,7 +13,7 @@
   };
 
   outputs = inputs:
-    let hostname = "Rodolfos-MacBook-Pro"; in {
+    let hostname = "macbook"; in {
       darwinConfigurations.${hostname} = inputs.darwin.lib.darwinSystem {
       	specialArgs = { inherit inputs; };
         system = "aarch64-darwin";

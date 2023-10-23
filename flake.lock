@@ -154,14 +154,15 @@
         "flake-utils": "flake-utils_2",
         "nixpkgs": [
           "nixpkgs"
-        ]
+        ],
+        "nixpkgs-unstable": "nixpkgs-unstable"
       },
       "locked": {
-        "lastModified": 1697050685,
-        "narHash": "sha256-0ZSnxblNJt/3E8/2KxMVKzfuwyUZGMr+UZM/PMqdJ2U=",
+        "lastModified": 1698074170,
+        "narHash": "sha256-yY4519riy0Chz8+w0PlcSHktts4Yo2gODrEZFyF7FWA=",
         "owner": "rtorresware",
         "repo": "nvim.flake",
-        "rev": "70b7fda3d4ddcf9241f10d7461996e4e99b6f137",
+        "rev": "3c1fe6c69daee930967a728b6c65191b8cf1cbc6",
         "type": "github"
       },
       "original": {
@@ -239,6 +240,22 @@
       "original": {
         "owner": "NixOS",
         "ref": "nixos-22.11",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-unstable": {
+      "locked": {
+        "lastModified": 1696725822,
+        "narHash": "sha256-B7uAOS7TkLlOg1aX01rQlYbydcyB6ZnLJSfaYbKVww8=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "5aabb5780a11c500981993d49ee93cfa6df9307b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
