@@ -24,6 +24,7 @@
       go-2fa
       obsidian
       heroku
+      openssh
 
       podman
       nil
