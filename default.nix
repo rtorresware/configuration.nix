@@ -23,6 +23,7 @@
       any-nix-shell
       go-2fa
       obsidian
+      dbeaver
       heroku
       openssh
 
