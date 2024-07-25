@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ inputs, ... }:
 {
   programs.zsh.enable = true;
   services.nix-daemon.enable = true;
@@ -13,7 +13,7 @@
       input-fonts.acceptLicense = true;
     };
     nix.settings.experimental-features = ["nix-command" "flakes"];
-    home.stateVersion = "23.05";
+    home.stateVersion = "24.05";
     home.packages = with pkgs;
     [
       inputs.devenv.packages.${home-manager.system}.devenv
