@@ -13,7 +13,7 @@
       input-fonts.acceptLicense = true;
     };
     nix.settings.experimental-features = ["nix-command" "flakes"];
-    home.stateVersion = "24.05";
+    home.stateVersion = "24.11";
     home.packages = with pkgs;
     [
       inputs.devenv.packages.${home-manager.system}.devenv
@@ -23,7 +23,6 @@
       any-nix-shell
       go-2fa
       obsidian
-      dbeaver
       heroku
       openssh
 
