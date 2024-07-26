@@ -11,8 +11,11 @@
     nixpkgs.config = {
       allowUnfree = true;
       input-fonts.acceptLicense = true;
+      extra-substituters = "https://devenv.cachix.org";
+      extra-trusted-public-keys = "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=";
     };
     nix.settings.experimental-features = ["nix-command" "flakes"];
+
     home.stateVersion = "24.11";
     home.packages = with pkgs;
     [
@@ -23,10 +26,8 @@
       any-nix-shell
       go-2fa
       obsidian
-      heroku
       openssh
 
-      podman
       nil
       nixpkgs-fmt
       input-fonts
