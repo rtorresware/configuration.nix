@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, anthropic_key, ... }:
 {
   programs.zsh.enable = true;
   services.nix-daemon.enable = true;
@@ -29,6 +29,50 @@
       obsidian
       openssh
 
+      (python311.pkgs.buildPythonPackage rec {
+	pname = "aider-chat";
+	version = "0.48.0";
+	format = "wheel";
+	src = fetchPypi {
+	  inherit version format;
+	  pname = "aider_chat";
+	  dist = "py3";
+	  python = "py3";
+	  sha256 = "dab45fdd4a759b6c8687663d4c0751a33544204362ff1b15cbfa57e8d6d35466";
+	};
+	meta = {
+	  homepage = "https://github.com/paul-gauthier/aider";
+	  description = "Aider is AI pair programming in your terminal";
+	};
+
+	propagatedBuildInputs = with python311.pkgs; [
+	  configargparse
+	  gitpython
+	  jsonschema
+	  rich
+	  prompt-toolkit
+	  backoff
+	  pathspec
+	  diskcache
+	  grep-ast
+	  packaging
+	  sounddevice
+	  soundfile
+	  beautifulsoup4
+	  pyyaml
+	  pillow
+	  diff-match-patch
+	  pypandoc
+	  litellm
+	  flake8
+	  importlib-resources
+	  networkx
+	  scipy
+	  numpy
+	  importlib-metadata
+	];
+      })
+
       nil
       nixpkgs-fmt
       input-fonts
@@ -38,6 +82,7 @@
     home.sessionVariables = {
       GIT_EDITOR = "nvim";
       EDITOR = "nvim";
+      ANTHROPIC_API_KEY = anthropic_key;
     };
   
     programs.git = {

@@ -12,9 +12,12 @@
   };
 
   outputs = inputs:
-    let hostname = "macbook"; in {
+    let 
+      hostname = "macbook";
+      anthropic_key = builtins.readFile ./anthropic_key.txt;
+    in {
       darwinConfigurations.${hostname} = inputs.darwin.lib.darwinSystem {
-      	specialArgs = { inherit inputs; };
+      	specialArgs = { inherit inputs anthropic_key; };
         system = "aarch64-darwin";
         modules = [
 	  inputs.home-manager.darwinModules.home-manager
