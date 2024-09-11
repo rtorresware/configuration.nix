@@ -28,17 +28,18 @@
       go-2fa
       obsidian
       openssh
+      llm
 
       (python311.pkgs.buildPythonPackage rec {
 	pname = "aider-chat";
-	version = "0.48.0";
+	version = "0.56.0";
 	format = "wheel";
 	src = fetchPypi {
 	  inherit version format;
 	  pname = "aider_chat";
 	  dist = "py3";
 	  python = "py3";
-	  sha256 = "dab45fdd4a759b6c8687663d4c0751a33544204362ff1b15cbfa57e8d6d35466";
+	  hash = "sha256-G6KE1CrLjW8kWW6rqv76rQ1FSL2RAPacaLdyRQ4W5oE=";
 	};
 	meta = {
 	  homepage = "https://github.com/paul-gauthier/aider";
@@ -65,6 +66,11 @@
 	  pypandoc
 	  litellm
 	  flake8
+	  importlib-resources
+	  pyperclip
+	  pexpect
+	  json5
+	  psutil
 	  importlib-resources
 	  networkx
 	  scipy

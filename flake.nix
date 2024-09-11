@@ -13,7 +13,7 @@
 
   outputs = inputs:
     let 
-      hostname = "macbook";
+      hostname = "macbook-2";
       anthropic_key = builtins.readFile ./anthropic_key.txt;
     in {
       darwinConfigurations.${hostname} = inputs.darwin.lib.darwinSystem {
