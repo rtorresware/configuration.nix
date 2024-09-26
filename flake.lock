@@ -242,11 +242,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1724558328,
-        "narHash": "sha256-e29DMDgO8wOdU1RpOXlZLcj4oihhre+2sweYNbjPnCE=",
+        "lastModified": 1727384156,
+        "narHash": "sha256-43db7g1NEUx9M/0tPZuPOED07n9H/U/VWLv74hOcfDQ=",
         "owner": "rtorresware",
         "repo": "nvim.flake",
-        "rev": "41fbc82642d68232db368b9fb2c9815b3e861200",
+        "rev": "c5cd231f85f20547f7b699a82285bd3a5d2ea2cc",
         "type": "github"
       },
       "original": {

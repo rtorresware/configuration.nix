@@ -28,10 +28,9 @@
       go-2fa
       obsidian
       openssh
-      llm
 
       (python311.pkgs.buildPythonPackage rec {
-	pname = "aider-chat";
+	pname = "";
 	version = "0.56.0";
 	format = "wheel";
 	src = fetchPypi {
@@ -78,6 +77,31 @@
 	  importlib-metadata
 	];
       })
+
+      (python311.withPackages(ps: [
+	llm
+	(python311.pkgs.buildPythonPackage rec {
+	  pname = "llm-claude-3";
+	  version = "0.4.1";
+	  format = "wheel";
+	  src = fetchPypi {
+	    inherit version format;
+	    pname = "llm_claude_3";
+	    dist = "py3";
+	    python = "py3";
+	    hash = "sha256-MO5FJECHRFsvry7w+7bf4FsdzDX1ZzZCYX4mScNHcBA=";
+	  };
+	  meta = {
+	    homepage = "https://github.com/simonw/llm-claude-3/tree/main";
+	    description = "LLM access to Claude 3 by Anthropic";
+	  };
+
+	  propagatedBuildInputs = with python311.pkgs; [
+	    llm
+	    anthropic
+	  ];
+	})
+      ]))
 
       nil
       nixpkgs-fmt
