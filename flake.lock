@@ -64,15 +64,15 @@
       "inputs": {
         "flake-utils": "flake-utils",
         "nixpkgs": [
-          "nixpkgs"
+          "nixpkgs-unstable"
         ]
       },
       "locked": {
-        "lastModified": 1729740234,
-        "narHash": "sha256-W1vW6/0t70dQTXKJb0CUwiBHTWAm2fxgWygNngyvuO0=",
+        "lastModified": 1729740953,
+        "narHash": "sha256-JzCpLJDdJRp9+IiNRjFe4jq3+0wUn9oGr9Qu65wjeY0=",
         "owner": "rtorresware",
         "repo": "nvim.flake",
-        "rev": "f7de54211d1df5e429b0ec6758cb978d30bc6d32",
+        "rev": "2a9d2ca7e2af62e5d22b6a34f4d45602c7b40836",
         "type": "github"
       },
       "original": {

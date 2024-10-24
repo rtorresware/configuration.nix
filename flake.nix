@@ -8,7 +8,7 @@
     darwin.url = "github:lnl7/nix-darwin/master";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
     my-neovim.url = "github:rtorresware/nvim.flake/main";
-    my-neovim.inputs.nixpkgs.follows = "nixpkgs";
+    my-neovim.inputs.nixpkgs.follows = "nixpkgs-unstable";
   };
 
   outputs =
