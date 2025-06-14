@@ -21,16 +21,15 @@
     }:
     let
       hostname = "macbook-2";
-      anthropic_key = builtins.readFile ./anthropic_key.txt;
       system = "aarch64-darwin";
-      aider-chat = nixpkgs-unstable.legacyPackages.${system}.aider-chat;
+      devenv = nixpkgs-unstable.legacyPackages.${system}.devenv;
       neovim = my-neovim.defaultPackage.${system};
     in
     {
       darwinConfigurations.${hostname} = darwin.lib.darwinSystem {
         system = system;
         specialArgs = {
-          inherit neovim home-manager anthropic_key aider-chat;
+          inherit neovim home-manager devenv;
         };
         modules = [
           home-manager.darwinModules.home-manager
