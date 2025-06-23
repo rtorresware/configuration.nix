@@ -22,14 +22,14 @@
     let
       hostname = "macbook-2";
       system = "aarch64-darwin";
-      devenv = nixpkgs-unstable.legacyPackages.${system}.devenv;
+      pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
       neovim = my-neovim.defaultPackage.${system};
     in
     {
       darwinConfigurations.${hostname} = darwin.lib.darwinSystem {
         system = system;
         specialArgs = {
-          inherit neovim home-manager devenv;
+          inherit neovim home-manager pkgs-unstable;
         };
         modules = [
           home-manager.darwinModules.home-manager
