@@ -42,10 +42,7 @@ in
           openssh
           input-fonts
         ])
-        ++ [
-          pkgs-unstable.devenv
-          pkgs-unstable.beam28Packages.elixir-ls
-        ];
+        ++ [ pkgs-unstable.devenv ];
 
       home.homeDirectory = home;
       home.sessionVariables = {
