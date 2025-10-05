@@ -1,24 +1,17 @@
-{
-  neovim,
-  pkgs-unstable,
-  ...
-}:
+{ neovim, pkgs, ...  }:
 let
   home = "/Users/rtorres";
   prefix = "${home}/.npm-packages";
 in
 {
   programs.zsh.enable = true;
-  services.nix-daemon.enable = true;
-
+  programs.fish.enable = true;
+  system.stateVersion = 6;
+  environment.shells = [ pkgs.fish ];
   users.users.rtorres.home = home;
-
   nix.settings = {
     experimental-features = "nix-command flakes";
-    extra-substituters = [ "https://devenv.cachix.org" ];
-    extra-trusted-public-keys = [ "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=" ];
   };
-
   home-manager.useUserPackages = true;
   home-manager.useGlobalPkgs = false;
   home-manager.users.rtorres =
@@ -28,7 +21,6 @@ in
         allowUnfree = true;
         input-fonts.acceptLicense = true;
       };
-
       home.stateVersion = "24.05";
       home.packages =
         [ neovim ]
@@ -41,9 +33,8 @@ in
           obsidian
           openssh
           input-fonts
-        ])
-        ++ [ pkgs-unstable.devenv ];
-
+          devenv
+        ]);
       home.homeDirectory = home;
       home.sessionVariables = {
         GIT_EDITOR = "nvim";
@@ -53,31 +44,18 @@ in
       home.sessionPath = [
         "${prefix}/bin"
       ];
-
       programs.git = {
         enable = true;
         userName = "Rodolfo Torres";
         userEmail = "rtorresware@gmail.com";
       };
-      programs.fish = {
-        enable = true;
-        plugins = [
-          {
-            name = "fenv";
-            src = pkgs.fishPlugins.foreign-env.src;
-          }
-        ];
-        shellInit = ''
-          set -gx PATH ${prefix}/bin $PATH
-        '';
-        interactiveShellInit = ''
-          ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
-          fenv . /etc/zshenv
-          set -gx PATH ${prefix}/bin $PATH
-        '';
-      };
 
-      programs.direnv.enable = true;
+      # Enable direnv integration
+      programs.direnv = {
+        enable = true;
+        nix-direnv.enable = true;  # Better Nix + direnv integration
+      };
+      
       programs.zsh.enable = true;
       programs.zsh.completionInit = "autoload -U compinit && compinit -i";
     };
