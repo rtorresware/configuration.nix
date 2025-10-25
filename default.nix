@@ -4,8 +4,17 @@ let
   prefix = "${home}/.npm-packages";
 in
 {
-  programs.zsh.enable = true;
-  programs.fish.enable = true;
+  programs = {
+    zsh.enable = true;
+    fish = {
+      enable = true;
+    };
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;  # Better Nix + direnv integration
+    };
+  };
+
   system.stateVersion = 6;
   environment.shells = [ pkgs.fish ];
   users.users.rtorres.home = home;
@@ -21,7 +30,7 @@ in
         allowUnfree = true;
         input-fonts.acceptLicense = true;
       };
-      home.stateVersion = "24.05";
+      home.stateVersion = "25.11";
       home.packages =
         [ neovim ]
         ++ (with pkgs; [
@@ -49,14 +58,6 @@ in
         userName = "Rodolfo Torres";
         userEmail = "rtorresware@gmail.com";
       };
-
-      # Enable direnv integration
-      programs.direnv = {
-        enable = true;
-        nix-direnv.enable = true;  # Better Nix + direnv integration
-      };
-      
-      programs.zsh.enable = true;
-      programs.zsh.completionInit = "autoload -U compinit && compinit -i";
+      programs.fish.enable = true;
     };
 }
