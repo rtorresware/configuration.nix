@@ -52,6 +52,7 @@ in
       };
       home.sessionPath = [
         "${prefix}/bin"
+        "${home}/.local/bin"
       ];
       programs.git = {
         enable = true;
