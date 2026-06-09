@@ -158,8 +158,10 @@ in
       '';
       programs.git = {
         enable = true;
-        userName = "Rodolfo Torres";
-        userEmail = "rtorresware@gmail.com";
+        settings.user = {
+          name = "Rodolfo Torres";
+          email = "rtorresware@gmail.com";
+        };
       };
       programs.fish.enable = true;
     };
