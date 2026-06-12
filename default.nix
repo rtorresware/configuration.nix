@@ -1,4 +1,4 @@
-{ neovim, web, pkgs, ... }:
+{ herdrPkg, herdrSrc, neovim, web, pkgs, ... }:
 let
   username = "rtorresware";
   home = "/Users/${username}";
@@ -103,7 +103,7 @@ in
       };
       home.stateVersion = "25.11";
       home.packages =
-        [ neovim web ]
+        [ herdrPkg neovim web ]
         ++ (with pkgs; [
           ripgrep
           nodejs
@@ -129,6 +129,11 @@ in
       xdg = {
         enable = true;
         configFile = {
+          "herdr/config.toml".text = ''
+            [theme]
+            name = "terminal"
+          '';
+          "opencode/skills/herdr/SKILL.md".source = "${herdrSrc}/SKILL.md";
           "opencode/skills/web-browser/SKILL.md".text = ''
             ---
             name: web-browser
