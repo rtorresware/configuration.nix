@@ -101,6 +101,15 @@ in
         allowUnfree = true;
         input-fonts.acceptLicense = true;
       };
+      nixpkgs.overlays = [
+        (final: prev: {
+          devenv = prev.devenv.overrideAttrs (old: {
+            postInstall = builtins.replaceStrings [
+              "--fish $compdir/devenv.fish"
+            ] [ "" ] old.postInstall;
+          });
+        })
+      ];
       home.stateVersion = "25.11";
       home.packages =
         [ herdrPkg neovim web ]
@@ -110,7 +119,7 @@ in
           direnv
           any-nix-shell
           go-2fa
-          obsidian
+          pscale
           openssh
           input-fonts
           devenv
@@ -129,10 +138,13 @@ in
       xdg = {
         enable = true;
         configFile = {
-          "herdr/config.toml".text = ''
-            [theme]
-            name = "terminal"
-          '';
+          "herdr/config.toml" = {
+            force = true;
+            text = ''
+              [theme]
+              name = "terminal"
+            '';
+          };
           "opencode/skills/herdr/SKILL.md".source = "${herdrSrc}/SKILL.md";
           "opencode/skills/web-browser/SKILL.md".text = ''
             ---
