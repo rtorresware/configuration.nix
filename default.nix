@@ -1,4 +1,4 @@
-{ herdrPkg, herdrSrc, neovim, web, pkgs, ... }:
+{ devenvPkg, herdrPkg, herdrSrc, neovim, web, pkgs, ... }:
 let
   username = "rtorresware";
   home = "/Users/${username}";
@@ -101,18 +101,9 @@ in
         allowUnfree = true;
         input-fonts.acceptLicense = true;
       };
-      nixpkgs.overlays = [
-        (final: prev: {
-          devenv = prev.devenv.overrideAttrs (old: {
-            postInstall = builtins.replaceStrings [
-              "--fish $compdir/devenv.fish"
-            ] [ "" ] old.postInstall;
-          });
-        })
-      ];
       home.stateVersion = "25.11";
       home.packages =
-        [ herdrPkg neovim web ]
+        [ devenvPkg herdrPkg neovim web ]
         ++ (with pkgs; [
           ripgrep
           nodejs
@@ -122,7 +113,6 @@ in
           pscale
           openssh
           input-fonts
-          devenv
         ]);
       home.homeDirectory = home;
       home.sessionVariables = {

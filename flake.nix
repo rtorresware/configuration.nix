@@ -2,6 +2,8 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    # Update devenv independently of the system packages and Fish.
+    nixpkgs-devenv.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     darwin.url = "github:lnl7/nix-darwin/master";
@@ -21,11 +23,13 @@
       my-neovim,
       my-web,
       darwin,
+      nixpkgs-devenv,
       ...
     }:
     let
       hostname = "macbook-2";
       system = "aarch64-darwin";
+      devenvPkg = nixpkgs-devenv.legacyPackages.${system}.devenv;
       herdrPkg = herdr.packages.${system}.default;
       herdrSrc = herdr.outPath;
       neovim = my-neovim.defaultPackage.${system};
@@ -35,7 +39,7 @@
       darwinConfigurations.${hostname} = darwin.lib.darwinSystem {
         system = system;
         specialArgs = {
-          inherit herdrPkg herdrSrc neovim web home-manager;
+          inherit devenvPkg herdrPkg herdrSrc neovim web home-manager;
         };
         modules = [
           home-manager.darwinModules.home-manager
